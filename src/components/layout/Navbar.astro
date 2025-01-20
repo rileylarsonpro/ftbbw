@@ -1,0 +1,30 @@
+---
+import NavBar from './Navbar.vue';
+import { auth } from '../../utils/auth';
+
+const links = [
+  { text: 'Home', href: '/' },
+  { text: 'Blog', href: '/blog' },
+  { text: 'About', href: '/about' },
+  { text: 'Films To Be Buried With', href: '/ftbbw' }
+];
+
+const referer = Astro.request.headers.get('Referer');
+let pathname = '';
+if (referer) {
+  const url = new URL(referer);
+  pathname = url.pathname;
+}
+
+const session = await auth.api.getSession({
+  headers: Astro.request.headers
+});
+---
+
+<NavBar
+  client:load
+  links={links}
+  activeLink={pathname}
+  currentUser={session?.user}
+  isClient={true}
+/>

@@ -1,0 +1,20 @@
+---
+import BlogPreview from '../../components/blog/BlogPreview.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'post'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul>
+  {
+    posts.map((post) => (
+      <li class="mb-12 md:mb-20">
+        <BlogPreview post={post} />
+      </li>
+    ))
+  }
+</ul>

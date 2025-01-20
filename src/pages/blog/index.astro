@@ -1,0 +1,12 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import { getCollection } from 'astro:content';
+import BlogList from '../../components/blog/BlogList.astro';
+export const prerender = true;
+
+const posts = await getCollection('post');
+---
+
+<DefaultLayout bgGradient={true} pageTitle="Blog Articles">
+  <BlogList posts={posts} />
+</DefaultLayout>

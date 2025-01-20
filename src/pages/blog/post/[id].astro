@@ -1,0 +1,23 @@
+---
+import BlogPost from '../../../components/blog/BlogPost.astro';
+import DefaultLayout from '../../../layouts/DefaultLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const { id } = Astro.params;
+if (id === undefined) {
+  return Astro.redirect('/404');
+}
+
+const post = await getEntry('post', id);
+
+if (post === undefined) {
+  return Astro.redirect('/404');
+}
+const { Content } = await render(post);
+---
+
+<DefaultLayout bgGradient={true}>
+  <BlogPost post={post}>
+    <Content />
+  </BlogPost>
+</DefaultLayout>

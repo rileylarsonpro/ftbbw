@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import Footer from '../components/layout/Footer.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import VueNavbar from '../components/layout/Navbar.vue';
+
+const { bgGradient, pageTitle } = Astro.props;
+
+import background from '../assets/background.svg';
+---
+
+<!doctype html>
+<html lang="en" class="bg-gray-800 text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Zimmy Monkey</title>
+  </head>
+
+  <body>
+    {
+      bgGradient && (
+        <img
+          transition:persist
+          id="background"
+          src={background.src}
+          alt=""
+          fetchpriority="high"
+        />
+      )
+    }
+    <Navbar server:defer transition:persist>
+      <VueNavbar slot="fallback" />
+    </Navbar>
+    <main class="min-h-full mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      {
+        pageTitle && (
+          <h1 class="py-8 text-center text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading">
+            {pageTitle}
+          </h1>
+        )
+      }
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

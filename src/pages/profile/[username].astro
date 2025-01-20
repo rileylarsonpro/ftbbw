@@ -1,0 +1,17 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import usersHelper from '../../helpers/users.helper';
+const { username } = Astro.params;
+
+if (!username) {
+  return Astro.redirect('/404');
+}
+
+let user = await usersHelper.findUserByUsername(username);
+
+if (!user) {
+  return Astro.redirect('/404');
+}
+---
+
+<DefaultLayout pageTitle={user.username} />

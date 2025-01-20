@@ -1,0 +1,21 @@
+---
+import Star from './Star.astro';
+interface Props {
+  rating: number;
+}
+const { rating } = Astro.props;
+---
+
+<div class="flex items-center text-purple-300">
+  <div class="mt-1">{rating} / 10</div>
+  {
+    [...Array(10)].map((star, index) => {
+      index += 1;
+      return (
+        <div>
+          <Star filled={index <= rating} />
+        </div>
+      );
+    })
+  }
+</div>
