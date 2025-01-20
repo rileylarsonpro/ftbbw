@@ -21,7 +21,7 @@ pnpm-debug.log*
 .DS_Store
 
 # data
-data/
+/data
 
 # Ignore .sqlite3 files
 *.sqlite3
