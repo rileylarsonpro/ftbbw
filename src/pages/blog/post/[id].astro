@@ -3,6 +3,8 @@ import BlogPost from '../../../components/blog/BlogPost.astro';
 import DefaultLayout from '../../../layouts/DefaultLayout.astro';
 import { getEntry, render } from 'astro:content';
 
+export const prerender = true;
+
 const { id } = Astro.params;
 if (id === undefined) {
   return Astro.redirect('/404');
