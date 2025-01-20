@@ -8,6 +8,6 @@ export const prerender = true;
 const posts = await getCollection('post');
 ---
 
-<DefaultLayout bgGradient={true} pageTitle="Blog Articles">
+<DefaultLayout pageTitle="Blog Articles">
   <BlogList posts={posts} />
 </DefaultLayout>

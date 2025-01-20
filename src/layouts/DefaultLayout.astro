@@ -4,7 +4,7 @@ import Footer from '../components/layout/Footer.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import VueNavbar from '../components/layout/Navbar.vue';
 
-const { bgGradient, pageTitle } = Astro.props;
+const { hideBgGradient, pageTitle } = Astro.props;
 
 import background from '../assets/background.svg';
 ---
@@ -21,7 +21,7 @@ import background from '../assets/background.svg';
 
   <body>
     {
-      bgGradient && (
+      !hideBgGradient && (
         <img
           transition:persist
           id="background"

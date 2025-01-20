@@ -9,7 +9,7 @@ export default {
   dbCredentials: {
     url:
       process.env.NODE_ENV === 'production'
-        ? '/app/data/db.sqlite3'
+        ? process.env.PRODUCTION_DB
         : './db.sqlite3'
   },
   casing: 'snake_case'

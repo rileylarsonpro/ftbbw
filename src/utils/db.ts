@@ -13,7 +13,7 @@ import * as seriesSchema from '../models/series.model';
 export const db = drizzle({
   connection:
     import.meta.env.NODE_ENV === 'production'
-      ? '/app/data/db.sqlite3'
+      ? process.env.PRODUCTION_DB
       : './db.sqlite3',
   casing: 'snake_case',
   schema: {
