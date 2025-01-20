@@ -99,6 +99,8 @@ This project is **not affiliated with Brett Goldstein or the official _Films To 
 - drizzle: https://orm.drizzle.team/docs/sql-schema-declaration
 - better-auth: https://www.better-auth.com/docs/installation
 - navbar: https://tailwindui.com/components/application-ui/navigation/navbars
+- theme: https://astrowind.vercel.app/get-started-website-with-astro-tailwind-css
+- github theme: https://github.com/onwidget/astrowind
 
 ```sh
 docker run \

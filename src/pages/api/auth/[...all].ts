@@ -1,4 +1,3 @@
-export const prerender = false;
 import { auth } from '../../../utils/auth';
 import type { APIRoute } from 'astro';
 

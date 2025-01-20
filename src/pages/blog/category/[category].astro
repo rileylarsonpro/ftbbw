@@ -3,8 +3,6 @@ import DefaultLayout from '../../../layouts/DefaultLayout.astro';
 import BlogList from '../../../components/blog/BlogList.astro';
 import { getCollection } from 'astro:content';
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const allPosts = await getCollection('post');
   const categories = [...new Set(allPosts.map((post) => post.data.category))]; // Get unique categories
