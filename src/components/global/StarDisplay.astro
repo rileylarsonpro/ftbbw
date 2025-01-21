@@ -7,7 +7,7 @@ const { rating } = Astro.props;
 ---
 
 <div class="flex items-center text-purple-300">
-  <div class="mt-1">{rating} / 10</div>
+  <div class="font-bold mt-0.5">{rating} / 10</div>
   {
     [...Array(10)].map((star, index) => {
       index += 1;

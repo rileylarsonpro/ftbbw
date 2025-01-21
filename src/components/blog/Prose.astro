@@ -1,7 +1,14 @@
 <div
-  class="prose dark:prose-invert
+  class="prose
+  dark:prose-invert
   prose-h1:font-bold prose-h1:text-xl
   prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl"
 >
   <slot />
 </div>
+
+<style>
+  .prose {
+    max-width: unset;
+  }
+</style>

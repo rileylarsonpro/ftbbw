@@ -23,7 +23,7 @@ export const prerender = true;
       class="max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 intersect-once intersect-quarter motion-safe:md:intersect:animate-fade md:grid-cols-2"
     >
       <div
-        class="relative pb-[56.25%] md:pb-[75%] h-[50rem] lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg"
+        class="relative pb-[56.25%] md:pb-[75%] md:h-[50rem] h-[30rem] lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg"
       >
         <Image
           src={RileyImage}
@@ -36,39 +36,41 @@ export const prerender = true;
           decoding="async"
         />
       </div>
-      <Prose>
-        <h2>Movies</h2>
-        <p>
-          The first movie I saw in theaters was <em
-            >Star Wars: Episode I - The Phantom Menace (1999)</em
-          >
-          My dad saw <em>Star Wars (1977)</em> in theaters as a little boy and it
-          blew his mind. He wanted to help share that same kind of experience with
-          me and took me to see The Phantom Menace when I was 1 and a half. I don't
-          know if it was because of Jar Jar Binks or in despite him but I have become
-          a massive consumer of films over the years.
-        </p>
-        <h2>Films To Be Buried With</h2>
-        <p>
-          Many know Brett Goldstein as Roy Kent from the TV Series <em
-            >Ted Lasso</em
-          >. But he is even better as the host of the best movie podcast ever:
-          <em>Films To Be Buried With</em>. I decided to create an all-in-one
-          fansite for the podcast where we can see what films come up the most
-          in what categories and allow users to take the FTBBW questionnaires
-          themselves and even create their own question lists so we can all
-          pretend we are cool enough to be on that podcast. I am sure I am not
-          the only movie nerd who has fantasized about Brett's movie heaven, and
-          is salivating for someone to ask them those questions.
-        </p>
-        <h2>Programming</h2>
-        <p>
-          I am a full-stack web developer and built this website from scratch to
-          combine my passion for movies and web development. I used the
-          following technologies to complete this project: Astro, Drizzle,
-          SQLite, Litesream, Docker, Vue, Better Auth, and Tailwind
-        </p>
-      </Prose>
+      <div class="px-6">
+        <Prose>
+          <h2>Movies</h2>
+          <p>
+            The first movie I saw in theaters was <em
+              >Star Wars: Episode I - The Phantom Menace (1999)</em
+            >
+            My dad saw <em>Star Wars (1977)</em> in theaters as a little boy and
+            it blew his mind. He wanted to help share that same kind of experience
+            with me and took me to see The Phantom Menace when I was 1 and a half.
+            I don't know if it was because of Jar Jar Binks or in despite him but
+            I have become a massive consumer of films over the years.
+          </p>
+          <h2>Films To Be Buried With</h2>
+          <p>
+            Many know Brett Goldstein as Roy Kent from the TV Series <em
+              >Ted Lasso</em
+            >. But he is even better as the host of the best movie podcast ever:
+            <em>Films To Be Buried With</em>. I decided to create an all-in-one
+            fansite for the podcast where we can see what films come up the most
+            in what categories and allow users to take the FTBBW questionnaires
+            themselves and even create their own question lists so we can all
+            pretend we are cool enough to be on that podcast. I am sure I am not
+            the only movie nerd who has fantasized about Brett's movie heaven,
+            and is salivating for someone to ask them those questions.
+          </p>
+          <h2>Programming</h2>
+          <p>
+            I am a full-stack web developer and built this website from scratch
+            to combine my passion for movies and web development. I used the
+            following technologies to complete this project: Astro, Drizzle,
+            SQLite, Litesream, Docker, Vue, Better Auth, and Tailwind
+          </p>
+        </Prose>
+      </div>
     </div>
   </div>
 </DefaultLayout>
