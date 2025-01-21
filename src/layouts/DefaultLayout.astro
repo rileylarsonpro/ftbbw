@@ -18,6 +18,21 @@ import background from '../assets/background.svg';
     <meta name="generator" content={Astro.generator} />
     <title>Zimmy Monkey</title>
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    type="text/partytown"
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-YDKJ6SPK58"></script>
+
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-YDKJ6SPK58');
+  </script>
 
   <body>
     {

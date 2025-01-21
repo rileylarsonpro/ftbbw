@@ -101,6 +101,7 @@ This project is **not affiliated with Brett Goldstein or the official _Films To 
 - navbar: https://tailwindui.com/components/application-ui/navigation/navbars
 - theme: https://astrowind.vercel.app/get-started-website-with-astro-tailwind-css
 - github theme: https://github.com/onwidget/astrowind
+- add google analytics: https://www.freecodecamp.org/news/how-to-add-google-analytics-to-your-astro-website/
 
 ```sh
 docker run \
