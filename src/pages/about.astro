@@ -12,7 +12,7 @@ export const prerender = true;
   <div class="mb-32">
     <Stats
       stats={[
-        { title: 'Films', amount: '2,201' },
+        { title: 'Films Watched', amount: '2,201' },
         { title: 'Letterboxd Reviews', amount: '1029' },
         { title: '2+ Film Days', amount: '402' },
         { title: 'Films in Watchlist', amount: '371' }
@@ -23,11 +23,11 @@ export const prerender = true;
       class="max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 intersect-once intersect-quarter motion-safe:md:intersect:animate-fade md:grid-cols-2"
     >
       <div
-        class="relative pb-[56.25%] md:pb-[75%] md:h-[50rem] h-[30rem] lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg"
+        class="relative pb-[56.25%] md:pb-[75%] md:h-[50rem] h-[30rem] lg:pb-[56.25%] overflow-hidden bg-gray-400 bg-slate-700 rounded shadow-lg"
       >
         <Image
           src={RileyImage}
-          class="absolute inset-0 object-cover w-full h-full mb-6 rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+          class="absolute inset-0 object-cover w-full h-full mb-6 rounded shadow-lg bg-gray-400 bg-slate-700"
           widths={[400, 900]}
           width={400}
           sizes="(max-width: 900px) 400px, 900px"
@@ -67,7 +67,7 @@ export const prerender = true;
             I am a full-stack web developer and built this website from scratch
             to combine my passion for movies and web development. I used the
             following technologies to complete this project: Astro, Drizzle,
-            SQLite, Litesream, Docker, Vue, Better Auth, and Tailwind
+            SQLite, Litestream, Docker, Vue, Better Auth, and Tailwind
           </p>
         </Prose>
       </div>

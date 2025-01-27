@@ -4,12 +4,18 @@ import Prose from './blog/Prose.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('post');
-const featuredPosts = allPosts.filter((post) => post.data.isFeatured);
+const featuredPosts = allPosts
+  .filter((post) => post.data.isFeatured)
+  .sort(
+    (a, b) =>
+      new Date(b.data.publishDate).getTime() -
+      new Date(a.data.publishDate).getTime()
+  );
 ---
 
 <div class="w-full">
   <p
-    class="max-w-3xl mx-auto mt-4 mb-8 text-xl md:text-2xl text-muted dark:text-slate-400 text-center"
+    class="max-w-3xl mx-auto mt-4 mb-8 text-xl md:text-2xl text-muted text-slate-400 text-center"
   >
     Riley's thoughts on films, casual Brett Goldstein worship, and maybe some
     other stuff.
@@ -17,7 +23,7 @@ const featuredPosts = allPosts.filter((post) => post.data.isFeatured);
   <div class="mt-32">
     {
       featuredPosts.length > 0 && (
-        <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-4 font-heading dark:text-slate-300 inline-blocktransition ease-in duration-200 text-center">
+        <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-4 font-heading text-slate-300 inline-blocktransition ease-in duration-200 text-center">
           Featured Posts
         </h2>
       )

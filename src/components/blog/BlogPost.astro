@@ -24,7 +24,7 @@ const { post } = Astro.props;
     >
       <div class="flex flex-col sm:flex-row gap-2 max-w-3xl mx-auto mt-0 mb-2">
         <div class="flex items-center gap-2">
-          <img class="w-4" src={Clock.src} />
+          <img class="w-4" src={Clock.src} alt="" />
           <time datetime={String(post.data.publishDate)} class="inline-block"
             >{getFormattedDate(post.data.publishDate)}</time
           >
@@ -32,7 +32,7 @@ const { post } = Astro.props;
             post.data.author && (
               <>
                 ·
-                <img class="h-4" src={Person.src} />
+                <img class="h-4" src={Person.src} alt="" />
                 <span class="inline-block">{post.data.author}</span>
               </>
             )
@@ -75,7 +75,7 @@ const { post } = Astro.props;
         )
       }
       <p
-        class="max-w-3xl mx-auto mt-4 mb-8 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify"
+        class="max-w-3xl mx-auto mt-4 mb-8 text-xl md:text-2xl text-muted text-slate-400 text-justify"
       >
         {post.data.excerpt}
       </p>
@@ -84,7 +84,7 @@ const { post } = Astro.props;
         post.data.image ? (
           <Image
             src={post.data.image.src}
-            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 bg-slate-700"
             widths={[400, 900]}
             sizes="(max-width: 900px) 400px, 900px"
             alt={post?.data.excerpt || ''}
@@ -95,13 +95,13 @@ const { post } = Astro.props;
           />
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
-            <div class="border-t dark:border-slate-700" />
+            <div class="border-t border-slate-700" />
           </div>
         )
       }
     </header>
     <div
-      class="mx-auto px-6 sm:px-6 max-w-3xl prose prose-md lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0"
+      class="mx-auto px-6 sm:px-6 max-w-3xl prose prose-md lg:prose-xl prose-invert prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8 prose-headings:scroll-mt-[80px] prose-li:my-0"
     >
       <Prose>
         <slot />
@@ -114,7 +114,7 @@ const { post } = Astro.props;
       <!-- <SocialShare
         url={url}
         text={post.title}
-        class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600"
+        class="mt-5 sm:mt-1 align-middle text-gray-500 text-slate-600"
       /> -->
     </div>
   </article>
