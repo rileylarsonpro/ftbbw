@@ -3,7 +3,7 @@ title: 'The Brutalist (2024) Review'
 publishDate: 01/19/2024
 author: 'Riley Larson'
 excerpt: 'Sex, Drugs, and Architecture'
-description: 'Review of The Brutalist (2024)'
+description: 'Review of The Brutalist (2024) by Riley Larson followed by a breakdown of who will win best picture at the 2025 Oscars.'
 image:
   src: 'https://image.tmdb.org/t/p/original/13M49lulPIULLd1y1AeMGI9K2AF.jpg'
   alt: 'László Tóth smokes as he watches welding sparks'

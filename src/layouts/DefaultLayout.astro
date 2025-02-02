@@ -4,7 +4,7 @@ import Footer from '../components/layout/Footer.astro';
 import Navbar from '../components/layout/Navbar.astro';
 import VueNavbar from '../components/layout/Navbar.vue';
 
-const { hideBgGradient, pageTitle } = Astro.props;
+const { hideBgGradient, pageTitle, metaDescription, metaTitle } = Astro.props;
 
 import background from '../assets/background.svg';
 ---
@@ -16,13 +16,15 @@ import background from '../assets/background.svg';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Zimmy Monkey</title>
-  </head>
+    {metaDescription && <meta name="description" content={metaDescription} />}
+    <title>{metaTitle ? metaTitle : 'ZimmyMonkey.com'}</title>
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YDKJ6SPK58"
+    ></script></head
+  >
   <!-- Google tag (gtag.js) -->
-  <script
-    type="text/partytown"
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-YDKJ6SPK58"></script>
 
   <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];

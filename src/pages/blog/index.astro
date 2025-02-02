@@ -6,8 +6,14 @@ import BlogList from '../../components/blog/BlogList.astro';
 export const prerender = true;
 
 const posts = await getCollection('post');
+
+const sortedPosts = posts.sort(
+  (a, b) =>
+    new Date(b.data.publishDate).getTime() -
+    new Date(a.data.publishDate).getTime()
+);
 ---
 
 <DefaultLayout pageTitle="Blog Articles">
-  <BlogList posts={posts} />
+  <BlogList posts={sortedPosts} />
 </DefaultLayout>
