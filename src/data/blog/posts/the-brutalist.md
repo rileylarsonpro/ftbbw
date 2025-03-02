@@ -1,6 +1,6 @@
 ---
 title: 'The Brutalist (2024) Review'
-publishDate: 01/19/2024
+publishDate: 01/19/2025
 author: 'Riley Larson'
 excerpt: 'Sex, Drugs, and Architecture'
 description: 'Review of The Brutalist (2024) by Riley Larson followed by a breakdown of who will win best picture at the 2025 Oscars.'
