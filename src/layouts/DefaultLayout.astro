@@ -18,15 +18,15 @@ import background from '../assets/background.svg';
     <meta name="generator" content={Astro.generator} />
     {metaDescription && <meta name="description" content={metaDescription} />}
     <title>{metaTitle ? metaTitle : 'ZimmyMonkey.com'}</title>
-    <script
+    { import.meta.env.NODE_ENV === 'production' && <script
       type="text/partytown"
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-YDKJ6SPK58"
     ></script></head
-  >
+  >}
   <!-- Google tag (gtag.js) -->
 
-  <script type="text/partytown">
+  { import.meta.env.NODE_ENV === 'production' && <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
@@ -34,7 +34,7 @@ import background from '../assets/background.svg';
     gtag('js', new Date());
 
     gtag('config', 'G-YDKJ6SPK58');
-  </script>
+  </script>}
 
   <body>
     {

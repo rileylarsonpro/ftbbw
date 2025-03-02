@@ -1,0 +1,13 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import CreateQuestionnaire from '../../components/questionnaire/CreateQuestionnaire.vue';
+
+//TODO - Temporary redirect away from page until finished
+if (!Astro.locals.isAdmin) {
+  return Astro.redirect('/');
+}
+---
+
+<DefaultLayout pageTitle="Create Questionnaire">
+  <CreateQuestionnaire client:only isAdmin={Astro.locals.isAdmin} />
+</DefaultLayout>

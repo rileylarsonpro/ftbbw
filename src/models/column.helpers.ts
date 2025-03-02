@@ -12,5 +12,7 @@ export const timestamps = {
 };
 
 export const answerType = {
-  answerType: text().$type<'MOVIE' | 'PERSON' | 'TV_SERIES'>().default('MOVIE')
+  answerType: text()
+    .$type<'MOVIE' | 'PERSON' | 'TV_SERIES' | 'TEXT' | 'MULTI'>()
+    .default('MOVIE')
 };

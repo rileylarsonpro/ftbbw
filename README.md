@@ -124,10 +124,8 @@ xcode-select --install
 
 ## TODO:
 
-- Make navbar function
-- Add branding
-- Create admin page where I can start adding in data
 - Display an answer page
+- Admin version of form that create episodes
 
 ## Notes
 

@@ -297,7 +297,7 @@ export default {
     async signIn() {
       await authClient.signIn.social({
         provider: 'google',
-        callbackURL: '/'
+        callbackURL: window.location.pathname
       });
     },
     async signOut() {

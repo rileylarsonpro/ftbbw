@@ -31,3 +31,5 @@ export const questionnaire = sqliteTable('questionnaires', {
     .references((): AnySQLiteColumn => user.id, { onDelete: 'set null' }),
   ...timestamps
 });
+
+export type Questionnaire = typeof questionnaire.$inferSelect;

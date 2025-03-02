@@ -19,7 +19,8 @@ export const answer = sqliteTable('answers', {
   note: t.text(),
   questionId: t
     .int()
-    .references((): AnySQLiteColumn => question.id, { onDelete: 'cascade' }),
+    .references((): AnySQLiteColumn => question.id, { onDelete: 'cascade' })
+    .notNull(),
   questionnaireId: t.int().references((): AnySQLiteColumn => questionnaire.id, {
     onDelete: 'cascade'
   }),

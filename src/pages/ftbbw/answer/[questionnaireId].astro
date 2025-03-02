@@ -1,0 +1,106 @@
+---
+import DefaultLayout from '../../../layouts/DefaultLayout.astro';
+import questionnaireHelper from '../../../helpers/questionnaire.helper';
+import AnswerQuestionnaire from '../../../components/questionnaire/AnswerQuestionnaire.vue';
+import {
+  findMovie,
+  findSeries,
+  findPerson
+} from '../../../actions/utils/media/media.utils';
+const { questionnaireId } = Astro.params;
+
+if (!questionnaireId) {
+  return Astro.redirect('/404');
+}
+
+let questionnaire = await questionnaireHelper.findQuestionnaireById(
+  parseInt(questionnaireId)
+);
+
+if (!questionnaire) {
+  return Astro.redirect('/404');
+}
+
+let questions = await questionnaireHelper.findManyQuestionnaireQuestions(
+  parseInt(questionnaireId)
+);
+
+let answers = await questionnaireHelper.findQuestionnaireAnswers(
+  parseInt(questionnaireId),
+  Astro.locals.user?.id as string
+);
+
+let previousAnswers = undefined as RawAnswerForm[][] | undefined;
+
+if (answers.length) {
+  previousAnswers = Array.from({ length: questions.length }, () => []);
+
+  let questionMap = {} as { [key: string]: number };
+
+  questions.forEach((question, index) => {
+    questionMap[question.id] = index;
+  });
+
+  for (let answer of answers) {
+    let index = questionMap[answer.questionId];
+    let innerAnswer = null as {
+      title?: string;
+      name?: string;
+      media_type: TMDBMediaType;
+      id: string;
+    } | null;
+
+    if (answer.movieId) {
+      let movie = await findMovie(answer.movieId);
+      innerAnswer = {
+        ...movie,
+        media_type: 'movie'
+      };
+    }
+
+    if (answer.seriesId) {
+      let series = await findSeries(answer.seriesId);
+      innerAnswer = {
+        ...series,
+        media_type: 'tv'
+      };
+    }
+
+    if (answer.personId) {
+      let person = await findPerson(answer.personId);
+      innerAnswer = {
+        ...person,
+        media_type: 'person'
+      };
+    }
+    previousAnswers[index].push({
+      answer: innerAnswer ?? null,
+      questionId: answer.questionId,
+      note: answer.note ?? ''
+    });
+  }
+}
+
+const title = questionnaire.name;
+//TODO - Temporary redirect away from page until finished
+if (!Astro.locals.isAdmin) {
+  return Astro.redirect('/');
+}
+---
+
+<DefaultLayout pageTitle={title}>
+  {
+    questionnaire.description && (
+      <p class="max-w-3xl mx-auto mt-4 mb-8 text-xl md:text-2xl text-muted text-slate-400 text-center">
+        {questionnaire.description}
+      </p>
+    )
+  }
+  <AnswerQuestionnaire
+    client:only
+    isAdmin={Astro.locals.isAdmin}
+    questionnaire={questionnaire}
+    questions={questions}
+    previousAnswers={previousAnswers}
+  />
+</DefaultLayout>

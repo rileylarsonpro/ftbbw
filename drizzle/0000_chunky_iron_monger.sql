@@ -79,7 +79,8 @@ CREATE TABLE `movies` (
 	`id` text PRIMARY KEY NOT NULL,
 	`title` text NOT NULL,
 	`year` text NOT NULL,
-	`poster_url` text NOT NULL,
+	`poster_path` text,
+	`backdrop_path` text,
 	`updated_at` text DEFAULT (current_timestamp) NOT NULL,
 	`created_at` text DEFAULT (current_timestamp) NOT NULL
 );
@@ -87,9 +88,22 @@ CREATE TABLE `movies` (
 CREATE TABLE `people` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text NOT NULL,
-	`img_url` text NOT NULL,
+	`profile_path` text,
 	`updated_at` text DEFAULT (current_timestamp) NOT NULL,
 	`created_at` text DEFAULT (current_timestamp) NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE `podcast_episodes` (
+	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	`title` text NOT NULL,
+	`number` integer NOT NULL,
+	`air_date` text NOT NULL,
+	`podcast_guest_id` integer,
+	`questionnaire_id` integer,
+	`updated_at` text DEFAULT (current_timestamp) NOT NULL,
+	`created_at` text DEFAULT (current_timestamp) NOT NULL,
+	FOREIGN KEY (`podcast_guest_id`) REFERENCES `podcast_guests`(`id`) ON UPDATE no action ON DELETE cascade,
+	FOREIGN KEY (`questionnaire_id`) REFERENCES `questionnaires`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
 CREATE TABLE `podcast_guests` (
@@ -107,7 +121,7 @@ CREATE TABLE `questions` (
 	`text` text NOT NULL,
 	`description` text,
 	`answer_type` text DEFAULT 'MOVIE',
-	`questionnaire_id` text,
+	`questionnaire_id` integer,
 	`order` integer DEFAULT 1,
 	`updated_at` text DEFAULT (current_timestamp) NOT NULL,
 	`created_at` text DEFAULT (current_timestamp) NOT NULL,
@@ -130,7 +144,8 @@ CREATE TABLE `series` (
 	`title` text NOT NULL,
 	`start_year` text NOT NULL,
 	`end_year` text,
-	`poster_url` text NOT NULL,
+	`poster_path` text,
+	`backdrop_path` text,
 	`updated_at` text DEFAULT (current_timestamp) NOT NULL,
 	`created_at` text DEFAULT (current_timestamp) NOT NULL
 );

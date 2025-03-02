@@ -1,17 +1,14 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro';
 import usersHelper from '../../helpers/users.helper';
-import { auth } from '../../utils/auth';
 
-const session = await auth.api.getSession({
-  headers: Astro.request.headers
-});
+let userId = Astro.locals.user?.id;
 
-if (!session?.user.id) {
+if (!userId) {
   return Astro.redirect('/404');
 }
 
-let user = await usersHelper.findUserByUserId(session.user.id);
+let user = await usersHelper.findUserByUserId(userId);
 
 if (!user) {
   return Astro.redirect('/404');

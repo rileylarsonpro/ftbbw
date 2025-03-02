@@ -1,0 +1,14 @@
+<svg
+
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="grey"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path
+            d="M11 18C15.4183 18 19 14.4183 19 10C19 5.58172 15.4183 2 11 2C6.58172 2 3 5.58172 3 10C3 14.4183 6.58172 18 11 18Z"
+          />
+          <path d="M21 21L16.65 16.65" />
+        </svg>

@@ -7,6 +7,7 @@ export const series = sqliteTable('series', {
   title: t.text().notNull(),
   startYear: t.text().notNull(),
   endYear: t.text(),
-  posterUrl: t.text().notNull(),
+  posterPath: t.text(),
+  backdropPath: t.text(),
   ...timestamps
 });
