@@ -11,7 +11,7 @@ tags: ['the brutalist', 'oscars 2025']
 rating: 6
 category: 'Movie Review'
 readingTime: '6 min'
-isFeatured: true
+isFeatured: false
 ---
 
 ## Brutal in more ways than one
