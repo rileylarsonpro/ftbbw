@@ -5,3 +5,4 @@ dbs:
         bucket: ${S3_BUCKET_NAME}
         path: ${LITESTREAM_PATHNAME}
         region: ${S3_REGION}
+        sync-interval: 6h
