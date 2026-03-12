@@ -36,9 +36,11 @@ RUN chmod +x run.sh
 
 COPY --from=build /app/litestream.yml /etc/litestream.yml
 
-# Create the data directory at runtime as well
-# (runtime is a fresh image, build-time dirs do not persist)
+# Create data directory (will be persisted via VOLUME)
 RUN mkdir -p /app/data
+
+# Persist data directory across container updates
+VOLUME ["/app/data"]
 
 ENV HOST=0.0.0.0
 ENV PORT=4321
